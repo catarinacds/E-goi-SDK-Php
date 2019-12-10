@@ -1,0 +1,6 @@
+{
+	"invokerPackage" : "org.egoi.client",
+	"apiPackage" : "org.egoi.client.api",
+	"modelPackage" : "org.egoi.client.model",
+	"artifactVersion" : "1.1.0"
+}
