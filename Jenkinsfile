@@ -7,10 +7,10 @@ timeout(time: 15, unit: 'MINUTES') {
        }
        stage('Build') {
            sh 'rm README.md'
-           sh "openapi-generator generate -i https://dev-api.egoiapp.com/openapi -g java -o . -c config.json"
+           sh "openapi-generator generate -i https://dev-api.egoiapp.com/openapi -g php -o . -c configPhp.json"
 
            sh "rm -rf target/"
-           sh "mvn clean install"
+           sh "compose clean install"
        }
        stage('Test') {
            //add junit tests
