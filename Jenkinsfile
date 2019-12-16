@@ -9,6 +9,8 @@ timeout(time: 15, unit: 'MINUTES') {
            sh "openapi-generator generate -i https://dev-api.egoiapp.com/openapi -g php -o . -c configPhp.json"
 
            sh "rm -rf target/"
+           
+           sh "groovy --version"
        }
        stage('Deploy') {
            def json = readFile(file:'./configPhp.json')
