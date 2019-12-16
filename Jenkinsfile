@@ -9,6 +9,7 @@ timeout(time: 15, unit: 'MINUTES') {
            sh "openapi-generator generate -i https://dev-api.egoiapp.com/openapi -g php -o . -c configPhp.json"
 
            sh "rm -rf target/"
+           sh "ls"
            sh "composer install"
        }
        stage('Test') {
