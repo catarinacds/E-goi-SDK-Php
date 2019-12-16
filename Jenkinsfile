@@ -12,9 +12,10 @@ timeout(time: 15, unit: 'MINUTES') {
        }
        stage('Deploy') {
            def json = readFile(file:'./configPhp.json')
-           echo json
            def data = new JsonSlurperClassic().parseText(json)
+           echo data
            def version = data.artifactVersion
+           echo version
            
            sh 'git add .'
            sh "git commit -am \"Version:  ${version}\""
