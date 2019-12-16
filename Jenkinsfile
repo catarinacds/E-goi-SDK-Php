@@ -14,6 +14,7 @@ timeout(time: 15, unit: 'MINUTES') {
        }
        stage('Deploy') {
            def json = readFile(file:'./configPhp.json')
+           echo json
            def data = new JsonSlurperClassic().parseText(json)
            def version = data.artifactVersion
            
