@@ -9,14 +9,9 @@ timeout(time: 15, unit: 'MINUTES') {
            sh "openapi-generator generate -i https://dev-api.egoiapp.com/openapi -g php -o . -c configPhp.json"
 
            sh "rm -rf target/"
-           sh "ls"
-           sh "composer install"
-       }
-       stage('Test') {
-           //add junit tests
        }
        stage('Deploy') {
-           def json = readFile(file:'config.json')
+           def json = readFile(file:'configPhp.json')
            def data = new JsonSlurperClassic().parseText(json)
            def version = data.artifactVersion
 
