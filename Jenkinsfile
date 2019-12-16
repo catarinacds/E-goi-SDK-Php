@@ -11,10 +11,11 @@ timeout(time: 15, unit: 'MINUTES') {
            sh "rm -rf target/"
        }
        stage('Deploy') {
-           def json = readFile(file:'configPhp.json')
+           def json = readFile(file:'./configPhp.json')
            def data = new JsonSlurperClassic().parseText(json)
            def version = data.artifactVersion
-
+           
+           sh 'git add .'
            sh "git commit -am \"Version:  ${version}\""
            sh 'git push'
            sh "git tag ${version}"
