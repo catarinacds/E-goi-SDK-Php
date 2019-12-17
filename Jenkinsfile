@@ -18,6 +18,7 @@ timeout(time: 15, unit: 'MINUTES') {
            def version = data.artifactVersion
            echo version
            
+           sh "ls"
            sh "git status"
            sh "git add ."
            sh "git commit -am \"Version:  ${version}\""
