@@ -16,8 +16,10 @@ timeout(time: 15, unit: 'MINUTES') {
            def json = readFile(file:'./configPhp.json')
            def data = new JsonSlurper().parseText(json)
            def version = data.artifactVersion
+           echo version
            
-           sh 'git add .'
+           sh "git status"
+           sh "git add ."
            sh "git commit -am \"Version:  ${version}\""
            sh 'git push'
            sh "git tag ${version}"
