@@ -13,9 +13,9 @@ timeout(time: 15, unit: 'MINUTES') {
        }
        stage('Deploy') {
            def json = readFile(file:'./configPhp.json')
-           def data = JsonOutput.toJson(json)
-           echo data
-           def version = data.artifactVersion
+           //def data = JsonOutput.toJson(json)
+           //echo data
+           def version = json.artifactVersion
            echo version
            
            sh 'git add .'
