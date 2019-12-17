@@ -1,5 +1,6 @@
 import groovy.json.JsonSlurperClassic
 import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 
 timeout(time: 15, unit: 'MINUTES') {
     node {
@@ -13,7 +14,7 @@ timeout(time: 15, unit: 'MINUTES') {
        }
        stage('Deploy') {
            def json = readFile(file:'./configPhp.json')
-           def data = readJSON text: json
+           def data = new JsonSlurper().parseText(json)
            echo data
            def version = ${data.artifactVersion}
            echo version
