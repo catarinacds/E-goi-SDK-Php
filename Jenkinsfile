@@ -13,7 +13,7 @@ timeout(time: 15, unit: 'MINUTES') {
        }
        stage('Deploy') {
            def json = readFile(file:'./configPhp.json')
-           def data = JsonOutput.toJson(json)
+           def data = = readJSON text: json
            echo data
            def version = ${data.artifactVersion}
            echo version
