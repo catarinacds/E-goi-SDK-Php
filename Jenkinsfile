@@ -11,16 +11,14 @@ timeout(time: 15, unit: 'MINUTES') {
            sh "rm -rf target/"
        }
        stage('Deploy') {
-           def json = readFile(file:'./configPhp.json')
-           def data = new JsonSlurper().parseText(json)
-           def version = data.artifactVersion
+           def data = new JsonSlurper().parseText(readFile(file:'./configPhp.json'))
            
            sh "ls"
            sh "git status"
            sh "git add ."
-           sh "git commit -am \"Version:  ${version}\""
+           sh "git commit -am \"Version:  ${data.artifactVersion}\""
            sh 'git push'
-           sh "git tag ${version}"
+           sh "git tag ${data.artifactVersion}"
            sh 'git push --tags'
        }
        stage('SonarQube analysis') {
