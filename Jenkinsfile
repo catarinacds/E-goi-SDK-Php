@@ -1,4 +1,3 @@
-import groovy.json.JsonSlurper
 
 timeout(time: 15, unit: 'MINUTES') {
     node {
@@ -11,14 +10,15 @@ timeout(time: 15, unit: 'MINUTES') {
            sh "rm -rf target/"
        }
        stage('Deploy') {
-           def data = new JsonSlurper().parseText(readFile(file:'./configPhp.json'))
+           def props = readJSON file: './configPhp.json'
+           echo props['artifactVersion']
            
            sh "ls"
            sh "git status"
            sh "git add ."
-           sh "git commit -am \"Version:  ${data.artifactVersion}\""
+           sh "git commit -am \"Version:  ${props['artifactVersion']}\""
            sh 'git push'
-           sh "git tag ${data.artifactVersion}"
+           sh "git tag ${props['artifactVersion']}"
            sh 'git push --tags'
        }
        stage('SonarQube analysis') {
