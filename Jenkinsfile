@@ -16,7 +16,6 @@ timeout(time: 15, unit: 'MINUTES') {
            def json = readFile(file:'./configPhp.json')
            def data = new JsonSlurper().parseText(json)
            def version = data.artifactVersion
-           echo version
            
            sh "ls"
            sh "git status"
