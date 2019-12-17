@@ -1,5 +1,3 @@
-import groovy.json.JsonSlurperClassic
-import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 
 timeout(time: 15, unit: 'MINUTES') {
