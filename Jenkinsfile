@@ -4,28 +4,24 @@ timeout(time: 15, unit: 'MINUTES') {
        stage('Git SCM') {
            checkout scm
        }
+        
        stage('Build') {
-           sh "rm -rf target/"
+           // Clean previously built sdks
+           cleanWs deleteDirs: true, patterns: [[pattern: '*-sdk*', type: 'INCLUDE']]
+           copyArtifacts filter: 'java-sdk.zip', fingerprintArtifacts: true, projectName: 'SDK Configs/master', selector: lastWithArtifacts(), target: './'
+           sh "unzip java-sdk.zip -d java-sdk"
        }
-       //stage('Test'){
-       //    sh "/usr/local/bin/composer install"
-       //}
+        
        stage('Deploy') {
-           def props = readJSON file: './configPhp.json'
-           echo props['artifactVersion']
+           def json = readFile(file:'java-sdk/configJava.json')
+           def data = new JsonSlurperClassic().parseText(json)
+           def version = data.artifactVersion
            
-           sh "ls"
-           sh "git status"
-           sh "git add ."
-           sh "git commit -am \"Version:  ${props['artifactVersion']}\""
+           sh "git add java-sdk/"
+           sh "git commit -am \"Version:  ${version}\""
            sh 'git push'
-           sh "git tag ${props['artifactVersion']}"
+           sh "git tag ${version}"
            sh 'git push --tags'
-       }
-       stage('SonarQube analysis') {
-           withSonarQubeEnv('E-Goi SonarQube') {
-             sh "/usr/bin/sonar-scanner"
-           }
        }
    }
 }
