@@ -5,10 +5,11 @@ timeout(time: 15, unit: 'MINUTES') {
            checkout scm
        }
        stage('Build') {
-           sh "openapi-generator generate -i https://dev-api.egoiapp.com/openapi -g php -o . -c configPhp.json"
-
            sh "rm -rf target/"
        }
+       //stage('Test'){
+       //    sh "/usr/local/bin/composer install"
+       //}
        stage('Deploy') {
            def props = readJSON file: './configPhp.json'
            echo props['artifactVersion']
