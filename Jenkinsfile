@@ -1,3 +1,4 @@
+import groovy.json.JsonSlurperClassic
 
 timeout(time: 15, unit: 'MINUTES') {
     node {
