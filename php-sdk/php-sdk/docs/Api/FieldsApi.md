@@ -1,0 +1,614 @@
+# org.egoi.client\FieldsApi
+
+All URIs are relative to *http://api-v3.egoiapp.max*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**createExtraField**](FieldsApi.md#createExtraField) | **POST** /lists/{list_id}/fields/extra | Create extra field
+[**createFieldOption**](FieldsApi.md#createFieldOption) | **POST** /lists/{list_id}/fields/extra/{field_id}/options | Create new field option
+[**deleteExtraField**](FieldsApi.md#deleteExtraField) | **DELETE** /lists/{list_id}/fields/extra/{field_id} | Remove extra field
+[**deleteFieldOption**](FieldsApi.md#deleteFieldOption) | **DELETE** /lists/{list_id}/fields/extra/{field_id}/options/{option_id} | Deletes an option
+[**getAllFieldOptions**](FieldsApi.md#getAllFieldOptions) | **GET** /lists/{list_id}/fields/extra/{field_id}/options | Get all field options
+[**getAllFields**](FieldsApi.md#getAllFields) | **GET** /lists/{list_id}/fields | Get all fields
+[**patchBaseField**](FieldsApi.md#patchBaseField) | **PATCH** /lists/{list_id}/fields/base/{field_id} | Update base field
+[**patchExtraField**](FieldsApi.md#patchExtraField) | **PATCH** /lists/{list_id}/fields/extra/{field_id} | Update extra field
+[**updateFieldOption**](FieldsApi.md#updateFieldOption) | **PATCH** /lists/{list_id}/fields/extra/{field_id}/options/{option_id} | Update field option
+
+
+
+## createExtraField
+
+> \org.egoi.client\org.egoi.client.model\Field createExtraField($list_id, $field)
+
+Create extra field
+
+Creates an extra field
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new org.egoi.client\Api\FieldsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$field = new \org.egoi.client\org.egoi.client.model\Field(); // \org.egoi.client\org.egoi.client.model\Field | Parameters for the extra field
+
+try {
+    $result = $apiInstance->createExtraField($list_id, $field);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FieldsApi->createExtraField: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **field** | [**\org.egoi.client\org.egoi.client.model\Field**](../Model/Field.md)| Parameters for the extra field |
+
+### Return type
+
+[**\org.egoi.client\org.egoi.client.model\Field**](../Model/Field.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## createFieldOption
+
+> \org.egoi.client\org.egoi.client.model\FieldOption createFieldOption($list_id, $field_id, $field_option)
+
+Create new field option
+
+Creates a field option
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new org.egoi.client\Api\FieldsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$field_id = 56; // int | ID of the Field
+$field_option = new \org.egoi.client\org.egoi.client.model\FieldOption(); // \org.egoi.client\org.egoi.client.model\FieldOption | Parameters for the field option
+
+try {
+    $result = $apiInstance->createFieldOption($list_id, $field_id, $field_option);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FieldsApi->createFieldOption: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **field_id** | **int**| ID of the Field |
+ **field_option** | [**\org.egoi.client\org.egoi.client.model\FieldOption**](../Model/FieldOption.md)| Parameters for the field option |
+
+### Return type
+
+[**\org.egoi.client\org.egoi.client.model\FieldOption**](../Model/FieldOption.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## deleteExtraField
+
+> deleteExtraField($list_id, $field_id)
+
+Remove extra field
+
+Removes an extra field given its ID
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new org.egoi.client\Api\FieldsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$field_id = 56; // int | ID of the Field
+
+try {
+    $apiInstance->deleteExtraField($list_id, $field_id);
+} catch (Exception $e) {
+    echo 'Exception when calling FieldsApi->deleteExtraField: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **field_id** | **int**| ID of the Field |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## deleteFieldOption
+
+> deleteFieldOption($list_id, $field_id, $option_id)
+
+Deletes an option
+
+Deletes an option of a list of values field
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new org.egoi.client\Api\FieldsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$field_id = 56; // int | ID of the Field
+$option_id = 56; // int | ID of the field option
+
+try {
+    $apiInstance->deleteFieldOption($list_id, $field_id, $option_id);
+} catch (Exception $e) {
+    echo 'Exception when calling FieldsApi->deleteFieldOption: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **field_id** | **int**| ID of the Field |
+ **option_id** | **int**| ID of the field option |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getAllFieldOptions
+
+> \org.egoi.client\org.egoi.client.model\FieldOptionsCollection getAllFieldOptions($list_id, $field_id)
+
+Get all field options
+
+Returns all options of a given field
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new org.egoi.client\Api\FieldsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$field_id = 56; // int | ID of the Field
+
+try {
+    $result = $apiInstance->getAllFieldOptions($list_id, $field_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FieldsApi->getAllFieldOptions: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **field_id** | **int**| ID of the Field |
+
+### Return type
+
+[**\org.egoi.client\org.egoi.client.model\FieldOptionsCollection**](../Model/FieldOptionsCollection.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## getAllFields
+
+> \org.egoi.client\org.egoi.client.model\FieldCollection getAllFields($list_id, $offset, $limit)
+
+Get all fields
+
+Returns all fields
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new org.egoi.client\Api\FieldsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$offset = 56; // int | Element offset (starting at zero for the first element)
+$limit = 10; // int | Number of items to return
+
+try {
+    $result = $apiInstance->getAllFields($list_id, $offset, $limit);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FieldsApi->getAllFields: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **offset** | **int**| Element offset (starting at zero for the first element) | [optional]
+ **limit** | **int**| Number of items to return | [optional] [default to 10]
+
+### Return type
+
+[**\org.egoi.client\org.egoi.client.model\FieldCollection**](../Model/FieldCollection.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## patchBaseField
+
+> \org.egoi.client\org.egoi.client.model\Field patchBaseField($list_id, $field_id, $patch_request_base_field)
+
+Update base field
+
+Updates a base field
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new org.egoi.client\Api\FieldsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$field_id = 'field_id_example'; // string | ID of the base field
+$patch_request_base_field = new \org.egoi.client\org.egoi.client.model\PatchRequestBaseField(); // \org.egoi.client\org.egoi.client.model\PatchRequestBaseField | Parameters for the extra field
+
+try {
+    $result = $apiInstance->patchBaseField($list_id, $field_id, $patch_request_base_field);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FieldsApi->patchBaseField: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **field_id** | **string**| ID of the base field |
+ **patch_request_base_field** | [**\org.egoi.client\org.egoi.client.model\PatchRequestBaseField**](../Model/PatchRequestBaseField.md)| Parameters for the extra field |
+
+### Return type
+
+[**\org.egoi.client\org.egoi.client.model\Field**](../Model/Field.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## patchExtraField
+
+> \org.egoi.client\org.egoi.client.model\Field patchExtraField($list_id, $field_id, $patch_request_field)
+
+Update extra field
+
+Updates an extra field
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new org.egoi.client\Api\FieldsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$field_id = 56; // int | ID of the Field
+$patch_request_field = new \org.egoi.client\org.egoi.client.model\PatchRequestField(); // \org.egoi.client\org.egoi.client.model\PatchRequestField | Parameters for the extra field
+
+try {
+    $result = $apiInstance->patchExtraField($list_id, $field_id, $patch_request_field);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FieldsApi->patchExtraField: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **field_id** | **int**| ID of the Field |
+ **patch_request_field** | [**\org.egoi.client\org.egoi.client.model\PatchRequestField**](../Model/PatchRequestField.md)| Parameters for the extra field |
+
+### Return type
+
+[**\org.egoi.client\org.egoi.client.model\Field**](../Model/Field.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
+
+## updateFieldOption
+
+> \org.egoi.client\org.egoi.client.model\FieldOption updateFieldOption($list_id, $field_id, $option_id, $field_option)
+
+Update field option
+
+Updates a field option
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: Apikey
+$config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = org.egoi.client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+
+$apiInstance = new org.egoi.client\Api\FieldsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$list_id = 56; // int | ID of the List
+$field_id = 56; // int | ID of the Field
+$option_id = 56; // int | ID of the field option
+$field_option = new \org.egoi.client\org.egoi.client.model\FieldOption(); // \org.egoi.client\org.egoi.client.model\FieldOption | Parameters for the field option
+
+try {
+    $result = $apiInstance->updateFieldOption($list_id, $field_id, $option_id, $field_option);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FieldsApi->updateFieldOption: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **list_id** | **int**| ID of the List |
+ **field_id** | **int**| ID of the Field |
+ **option_id** | **int**| ID of the field option |
+ **field_option** | [**\org.egoi.client\org.egoi.client.model\FieldOption**](../Model/FieldOption.md)| Parameters for the field option |
+
+### Return type
+
+[**\org.egoi.client\org.egoi.client.model\FieldOption**](../Model/FieldOption.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../../README.md#documentation-for-models)
+[[Back to README]](../../README.md)
+
